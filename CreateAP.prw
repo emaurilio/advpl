@@ -20,7 +20,7 @@ User Function CreateAPVExpenses(cEmissionDate, cReportNum, cCodeSupplier, nValue
     aVetor := {}
     AAdd(aVetor, {"E2_FILIAL",  "01",             Nil})
     AAdd(aVetor, {"E2_PREFIXO", "VEX",            Nil})
-    AAdd(aVetor, {"E2_NUM",     "5",       Nil})
+    AAdd(aVetor, {"E2_NUM",     cExpenseNum,      Nil})
     AAdd(aVetor, {"E2_PARCELA", "A",              Nil})
     AAdd(aVetor, {"E2_TIPO",    "RC",             Nil})
     AAdd(aVetor, {"E2_NATUREZ", "REEMBOLSO",      Nil})
@@ -32,7 +32,7 @@ User Function CreateAPVExpenses(cEmissionDate, cReportNum, cCodeSupplier, nValue
     AAdd(aVetor, {"E2_VALOR",   nValueExpenses,   Nil})
     AAdd(aVetor, {"E2_HIST",    cReportNum,       Nil})
     AAdd(aVetor, {"E2_MOEDA",   1,                Nil})
-    AAdd(aVetor, {"E2_CONTAD",  "COMBUSTIVEL",    Nil})
+    AAdd(aVetor, {"E2_CONTAD",  cExpenseTypeCode, Nil})
     AAdd(aVetor, {"E2_CCUSTO",  cCostCenterCode,  Nil})
     AAdd(aVetor, {"E2_RATEIO",  "N",              Nil})
 
