@@ -1,5 +1,6 @@
 User Function ApiRequisition(cPath, cToken, cMethod, cBody)
-    Local cUri := "https://api.vexpenses.com/v2/"
+    RpcSetEnv("99", "01")
+    Local cUri := SuperGetMV("MV_URIVEX",, "", FWxFilial("SM0"))
     Local aHeadOut := {}
     Local cResponse := ""
     Local oRest := FWREST():New(curi)

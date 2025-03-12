@@ -4,8 +4,12 @@
 
 User Function IntegrationVExpenses()
     RpcSetEnv("99", "01")
+
+    cYesterday = DtoC(Date() - 1)
+    cFormatDate := "20" + SubStr(cYesterday, 7, 2) + "-" + SubStr(cYesterday, 4, 2) + "-" + SubStr(cYesterday, 1, 2)
+
+    Local cPath := "reports/status/APROVADO?include=expenses,user,expenses.apportionment,expenses.expense_type,expenses.costs_center,expenses.payment_method,advance&search=approval_date:"+ cFormatDate +"&searchFields=approval_date:=&searchJoin=and"
     Local oJson := JSonObject():New()
-    Local cPath := "reports/status/APROVADO?include=expenses,user,expenses.apportionment,expenses.expense_type,expenses.costs_center,expenses.payment_method,advance&search=approval_date:2025-03-09&searchFields=approval_date:=&searchJoin=and"
     Local cApiReturn
     Local oData, nI, nJ, nLen, nLenExp
     Local oExpenses, oSupplier
@@ -32,7 +36,7 @@ User Function IntegrationVExpenses()
 
         If empty(cCodSupplier) .OR. cCodSupplier = "null"
             cEmailSupplier := oSupplier:GetJsonText("email")
-            aadd(aErrors, "Código do fornecedor: "+ cEmailSupplier +" está vazio")
+            aadd(aErrors, "Código do fornecedor: " + cEmailSupplier + " está vazio")
             loop
         Endif
 

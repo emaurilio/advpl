@@ -26,13 +26,14 @@ User Function PayReport()
     For nI := 1 To nTotal
         cNumReport := TRB->E2_HIST
         CDatePayment := TRB->E2_BAIXA
-        cFromatDate := SubStr(CDatePayment, 1, 4) + "-" + SubStr(CDatePayment, 5, 2) + "-" + SubStr(CDatePayment, 7, 2)
-        cBody := '{"payment_date":"'+cFromatDate+' 01:10:00"}'
-        cReturn := U_ApiRequisition('reports/'+AllTrim(cNumReport)+'/pay', cToken, 'PUT' ,cBody)
+        cnumReportTrim = AllTrim(cNumReport)
+        cFormatDate := SubStr(CDatePayment, 1, 4) + "-" + SubStr(CDatePayment, 5, 2) + "-" + SubStr(CDatePayment, 7, 2)
+        cBody := '{"payment_date":"' + cFormatDate + ' 01:10:00"}'
+        cReturn := U_ApiRequisition("reports/"+ cnumReportTrim +"/pay", cToken, "PUT" ,cBody)
         oJSon:fromJson(cReturn)
         ce := oJson:GetJsonText("message")
         If oJson:GetJsonText("success") <> "true"
-            aadd(aErrors, "Erro ao consultar API: " + oJson:GetJsonText("message"))
+            aadd(aErrors, "Erro aao pagar o relatório id: " + cnumReportTrim +  ". " + oJson:GetJsonText("message"))
         EndIf
 
         TRB->(dbSkip())

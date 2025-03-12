@@ -5,14 +5,13 @@
 User Function CreateAPVExpenses(cEmissionDate, cReportNum, cCodeSupplier, nValueExpenses, cExpenseNum, cCostCenterCode, cExpenseTypeCode)
     Local lRet      := .T.
     Local dDueDate   := Date() + 30
-    Local cDataStr  := cEmissionDate
-    Local cFromatDate   := ""
+    Local cFormatDate   := ""
     Local dEmissionDate := CToD("")
     
     Private lMsErroAuto := .F.
 
-    cFromatDate := SubStr(cDataStr, 9, 2) + "/" + SubStr(cDataStr, 6, 2) + "/" + SubStr(cDataStr, 1, 4)
-    dEmissionDate := CTOD(cFromatDate)
+    cFormatDate := SubStr(cEmissionDate, 9, 2) + "/" + SubStr(cEmissionDate, 6, 2) + "/" + SubStr(cEmissionDate, 1, 4)
+    dEmissionDate := CTOD(cFormatDate)
     
     RpcSetEnv("99", "01")
     DbUseArea(.T., "TOPCONN", "SE2", "SE2", .F., .F.)
@@ -43,7 +42,6 @@ User Function CreateAPVExpenses(cEmissionDate, cReportNum, cCodeSupplier, nValue
         lRet := .F.
     Else
         ConfirmSX8()
-        MsgInfo("Título criado com sucesso!", "Sucesso")
     EndIf
 
     Return lRet
