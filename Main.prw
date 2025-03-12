@@ -17,7 +17,6 @@ User Function IntegrationVExpenses()
     oJSon:fromJson(cApiReturn)
 
     If oJson:GetJsonText("success") <> "true"
-        ConOut(oJson:GetJsonText("success"))
         aadd(aErrors, "Erro ao consultar API: " + oJson:GetJsonText("message"))
         U_SendEmailErrors(aErrors)
         Return
@@ -72,7 +71,7 @@ User Function IntegrationVExpenses()
         Next nJ
     Next nI
 
-    If Len(aErrors) < 0
+    If Len(aErrors) > 0
         U_SendEmailErrors(aErrors)
     Endif
 
