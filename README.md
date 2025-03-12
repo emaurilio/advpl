@@ -15,7 +15,7 @@ O objetivo do projeto é desenvolver uma integração de reembolsos entre VExpen
 
 A integração abrange somente reembolsos, mas existe uma programação para a inclusão de integração com cartões corporativos, adiantamentos, solicitação de adiantamentos e cartão VExpenses.
 
-Ela acontece de em dois momentos:
+Ela acontece de em dois momentos:  
   1 - O relatório é aprovado no VExpenses;  
   2 - A integração roda uma vez ao dia, pegando todos os relatórios aprovados no dia anterior;  
   3 - O título de contas a pagar é criado;  
@@ -35,16 +35,16 @@ Ela acontece de em dois momentos:
 
 ## Tecnologias Usadas
 
-- **ADVPL**: Linguagem de programação do Protheus.
+- **ADVPL**: Linguagem de programação do Protheus.  
 
 ## Como Usar
 
-É necessário criar váriaveis (entrando no Protheus com o usuário "Configurador) na aba de "Parâmetros". São eles:
-  1 - MV_TOKEN - Token VExpenses;
-  2 - MV_SERVER - Server do SMTP para envio de e-mails;
-  3 - MV_USERE - Usuário SMTP;
-  4 - MV_PASS - Senha usuário SMTP;
+É necessário criar váriaveis (entrando no Protheus com o usuário "Configurador) na aba de "Parâmetros". São eles:  
+  1 - MV_TOKEN - Token VExpenses;  
+  2 - MV_SERVER - Server do SMTP para envio de e-mails;  
+  3 - MV_USERE - Usuário SMTP;  
+  4 - MV_PASS - Senha usuário SMTP;  
 
-Sugiro que crie os parâmetros sem filial vinculado.
+Sugiro que crie os parâmetros sem filial vinculado.  
 
-Além dos parâmetros, é necessário criar os Schedules para que as funções rodem automaticamente todo dia.
+Além dos parâmetros, é necessário criar os Schedules para que as funções rodem automaticamente todo dia.  
