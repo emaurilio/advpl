@@ -41,9 +41,10 @@ Ela acontece de em dois momentos:
 
 É necessário criar váriaveis (entrando no Protheus com o usuário "Configurador) na aba de "Parâmetros". São eles:  
   1 - MV_TOKEN - Token VExpenses;  
-  2 - MV_SERVER - Server do SMTP para envio de e-mails;  
-  3 - MV_USERE - Usuário SMTP;  
-  4 - MV_PASS - Senha usuário SMTP;  
+  2 - MV_URIVEX - URI API VExpenses;  
+  3 - MV_SERVER - Server do SMTP para envio de e-mails;  
+  4 - MV_USERE - Usuário SMTP;  
+  5 - MV_PASS - Senha usuário SMTP;  
 
 Sugiro que crie os parâmetros sem filial vinculado.  
 
